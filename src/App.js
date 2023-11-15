@@ -1,24 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import data from './models/info';
+import Education from './components/Education/Education';
+import Workhistory from './components/workhistory';
+import Cell from "./components/Education/CellNumber";
+import Email from "./components/Email";
+import Name from "./components/Identity";
+import { useState } from "react";
 
 function App() {
+const [info, setInfo]= useState(data)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <h1>Contact Info</h1>
+    <Name id= {info.Name} />
+    <Email mail={info.Email} />
+    <Cell phone={info.Phone} />
+    <h1>Education</h1>
+    <Education edu={info.schools} />
+    <h1>Work Experience</h1>
+    <Workhistory work={info.Workhistory} />
+    </>
   );
 }
 
